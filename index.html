@@ -8,13 +8,25 @@
 </head>
 <body>
     <h1>Sua localização é:</h1>
-    <h2></h2>
+    <p></p>
     
     <script>
-        const getPosition =position =>{
-            console.log(position)
+        const p = document.querySelector('p')
+        const getPosition = position => {
+            const dados = {
+                latitude : position.coords.latitude,
+                longitude : position.coords.longitude
+            }
+            console.log(dados)
+            p.innerHTML = `
+            Latitude : ${dados.latitude} </br>
+            Longitude : ${dados.longitude}`
         }
-        navigator.geolocation.getCurrentPosition()
+        const geoError = error => {
+            console.log(error)
+            console.log('usuario não permitiu')
+        }
+        navigator.geolocation.getCurrentPosition(getPosition,geoError)
     </script>
 </body>
 </html>
