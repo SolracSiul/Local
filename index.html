@@ -26,7 +26,7 @@
             console.log(error)
             console.log('usuario não permitiu')
         }
-        navigator.geolocation.getCurrentPosition(getPosition,geoError)
+        navigator.geolocation.getCurrentPosition(getPosition,geoError, {enableHighAccuracy: true})
     </script>
 </body>
 </html>
